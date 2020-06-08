@@ -21,7 +21,7 @@ partedUtil getptbl /dev/disks/<deviceID>
 ```
 Calculate (yes, math) the end sector for your new partition from the resulting numbers from the following command:
 
-#121597 * 255 * 63 -1 = 1953455804
+# 121597 * 255 * 63 -1 = 1953455804
 ```
 partedUtil setptbl /dev/disks/<deviceID> gpt "1 2048 <endSector> AA31E02A400F11DB9590000C2911D1B8 0"
 ```
@@ -31,4 +31,4 @@ Format your new partition with VMFS6
 vmkfstools -C vmfs6 -S <disk-name> /dev/disks/<deviceID>:1 
 ```
 
-#Re-disable SSH access to your ESXI host
+# Re-disable SSH access to your ESXI host
