@@ -16,19 +16,19 @@ ls /dev/disks/
 
 Write a GPT label to your USB device using it’s ID:
 ```
-partedUtil mklabel /dev/disks/<deviceID> gpt
-partedUtil getptbl /dev/disks/<deviceID>
+partedUtil mklabel /dev/disks/mpx.vmhba33:C0:T0:L0 gpt
+partedUtil getptbl /dev/disks/mpx.vmhba33:C0:T0:L0
 ```
 Calculate (yes, math) the end sector for your new partition from the resulting numbers from the following command:
 
 121597 * 255 * 63 -1 = 1953455804
 ```
-partedUtil setptbl /dev/disks/<deviceID> gpt "1 2048 <endSector> AA31E02A400F11DB9590000C2911D1B8 0"
+partedUtil setptbl /dev/disks/mpx.vmhba33:C0:T0:L0 gpt "1 2048 <endSector> AA31E02A400F11DB9590000C2911D1B8 0"
 ```
 
 Format your new partition with VMFS6
 ```
-vmkfstools -C vmfs6 -S <disk-name> /dev/disks/<deviceID>:1 
+vmkfstools -C vmfs6 -S <disk-name> /dev/disks/mpx.vmhba33:C0:T0:L0:1 
 ```
 Re-disable SSH access to your ESXI host
 
