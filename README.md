@@ -31,3 +31,18 @@ Format your new partition with VMFS6
 vmkfstools -C vmfs6 -S <disk-name> /dev/disks/<deviceID>:1 
 ```
 Re-disable SSH access to your ESXI host
+
+# ESXi 6.7 直通板载 SATA控制器 (Intel)
+check AHCI controler device ID
+···
+lspci -v | grep "Class 0106" -B 1
+···
+
+edit passthrough file and add intel controler id 
+```
+vi /etc/vmware/passthru.map
+
+#Intel Corporation Lynx Point AHCI Controller
+8086 xxxx d3d0 false
+```
+reboot
