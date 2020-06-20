@@ -6,6 +6,7 @@ Stop the USB arbitrator service
 
 ```
 /etc/init.d/usbarbitrator stop
+chkconfig usbarbitrator off
 ```
 
 Plug in and look for your desired USB device
