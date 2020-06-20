@@ -34,9 +34,9 @@ Re-disable SSH access to your ESXI host
 
 # ESXi 6.7 直通板载 SATA控制器 (Intel)
 check AHCI controler device ID
-···
+```
 lspci -v | grep "Class 0106" -B 1
-···
+```
 
 edit passthrough file and add intel controler id 
 ```
